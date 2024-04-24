@@ -1,3 +1,8 @@
+import { Form } from "../components";
 export default function Home() {
-  return <p>Hello world</p>;
+  return (
+    <>
+      <Form />
+    </>
+  );
 }
