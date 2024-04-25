@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 export default function Form() {
+  const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
     username: "",
@@ -20,6 +22,7 @@ export default function Form() {
   }
   console.log(data.name.trim());
   function validate() {
+    let isError = false;
     setError(() => {
       return {
         name: "",
@@ -34,30 +37,39 @@ export default function Form() {
       setError((error) => {
         return { ...error, name: "Name is required" };
       });
+      isError = true;
     }
     if (data.username.trim().length === 0) {
       console.warn("Username is required");
       setError((error) => {
         return { ...error, username: "Username is required" };
       });
+      isError = true;
     }
     if (data.email.trim().length === 0) {
       console.warn("Email is required");
       setError((error) => {
         return { ...error, email: "Email is required" };
       });
+      isError = true;
     }
     if (data.phone.trim().length === 0 || !validatePhone(data.phone)) {
       console.warn("Phone is either empty or invalid");
       setError((error) => {
         return { ...error, phone: "Phone is either empty or invalid" };
       });
+      isError = true;
     }
     if (!data.checkbox) {
       console.warn("Checkbox is required");
       setError((error) => {
         return { ...error, checkbox: "Checkbox is required" };
       });
+      isError = true;
+    }
+    if (!isError) {
+      console.log("Data is valid");
+      navigate("/movies");
     }
   }
   return (
