@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 export default function Form() {
   const [data, setData] = useState({
     name: "",
@@ -8,7 +7,6 @@ export default function Form() {
     phone: "",
     checkbox: false,
   });
-
   const [error, setError] = useState({
     name: "",
     username: "",
@@ -16,22 +14,52 @@ export default function Form() {
     phone: "",
     checkbox: "",
   });
-
   function validatePhone(phone) {
     const phoneRegex = /^[0-9]{10}$/;
     return phoneRegex.test(phone);
   }
-
+  console.log(data.name.trim());
   function validate() {
-    setError({
-      name: data.name.trim() ? "" : "Name is required",
-      username: data.username.trim() ? "" : "Username is required",
-      email: data.email.trim() ? "" : "Email is required",
-      phone: data.phone.trim() && validatePhone(data.phone) ? "" : "Phone is either empty or invalid",
-      checkbox: data.checkbox ? "" : "Checkbox is required",
+    setError(() => {
+      return {
+        name: "",
+        username: "",
+        email: "",
+        phone: "",
+        checkbox: "",
+      };
     });
+    if (data.name.trim().length === 0) {
+      console.warn("Name is required");
+      setError((error) => {
+        return { ...error, name: "Name is required" };
+      });
+    }
+    if (data.username.trim().length === 0) {
+      console.warn("Username is required");
+      setError((error) => {
+        return { ...error, username: "Username is required" };
+      });
+    }
+    if (data.email.trim().length === 0) {
+      console.warn("Email is required");
+      setError((error) => {
+        return { ...error, email: "Email is required" };
+      });
+    }
+    if (data.phone.trim().length === 0 || !validatePhone(data.phone)) {
+      console.warn("Phone is either empty or invalid");
+      setError((error) => {
+        return { ...error, phone: "Phone is either empty or invalid" };
+      });
+    }
+    if (!data.checkbox) {
+      console.warn("Checkbox is required");
+      setError((error) => {
+        return { ...error, checkbox: "Checkbox is required" };
+      });
+    }
   }
-
   return (
     <div className="flex bg-black text-white h-screen">
       <div className="">
@@ -62,31 +90,37 @@ export default function Form() {
             type="text"
             placeholder="Name"
             value={data.name}
-            className={`input ${error.name && "input-error"}`}
+            className="bg-[#292929] text-[#7C7C7C] rounded p-1 px-10"
             onChange={(e) => setData({ ...data, name: e.target.value })}
           />
           <span style={{ color: "red" }}>{error.name}</span>
           <input
             type="text"
+            name=""
+            id=""
             placeholder="Username"
             value={data.username}
-            className={`input ${error.username && "input-error"}`}
+            className="bg-[#292929] text-[#7C7C7C] rounded p-1 px-10"
             onChange={(e) => setData({ ...data, username: e.target.value })}
           />
           <span style={{ color: "red" }}>{error.username}</span>
           <input
             type="email"
+            name=""
+            id=""
             placeholder="Email"
             value={data.email}
-            className={`input ${error.email && "input-error"}`}
+            className="bg-[#292929] text-[#7C7C7C] rounded p-1 px-10"
             onChange={(e) => setData({ ...data, email: e.target.value })}
           />
           <span style={{ color: "red" }}>{error.email}</span>
           <input
             type="tel"
+            name=""
+            id=""
             placeholder="Phone"
             value={data.phone}
-            className={`input ${error.phone && "input-error"}`}
+            className="bg-[#292929] text-[#7C7C7C] rounded p-1 px-10"
             onChange={(e) => setData({ ...data, phone: e.target.value })}
           />
           <span style={{ color: "red" }}>{error.phone}</span>
