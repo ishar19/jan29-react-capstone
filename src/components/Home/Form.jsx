@@ -90,7 +90,7 @@ export default function Form() {
             type="text"
             placeholder="Name"
             value={data.name}
-            className="bg-[#292929] text-[#7C7C7C] rounded p-1 px-10"
+            className={`input ${error.name && "input-error"}`}
             onChange={(e) => setData({ ...data, name: e.target.value })}
           />
           <span style={{ color: "red" }}>{error.name}</span>
@@ -100,7 +100,7 @@ export default function Form() {
             id=""
             placeholder="Username"
             value={data.username}
-            className="bg-[#292929] text-[#7C7C7C] rounded p-1 px-10"
+            className={`input ${error.name && "input-error"}`}
             onChange={(e) => setData({ ...data, username: e.target.value })}
           />
           <span style={{ color: "red" }}>{error.username}</span>
@@ -110,7 +110,7 @@ export default function Form() {
             id=""
             placeholder="Email"
             value={data.email}
-            className="bg-[#292929] text-[#7C7C7C] rounded p-1 px-10"
+            className={`input ${error.name && "input-error"}`}
             onChange={(e) => setData({ ...data, email: e.target.value })}
           />
           <span style={{ color: "red" }}>{error.email}</span>
@@ -120,7 +120,7 @@ export default function Form() {
             id=""
             placeholder="Phone"
             value={data.phone}
-            className="bg-[#292929] text-[#7C7C7C] rounded p-1 px-10"
+            className={`input ${error.name && "input-error"}`}
             onChange={(e) => setData({ ...data, phone: e.target.value })}
           />
           <span style={{ color: "red" }}>{error.phone}</span>
