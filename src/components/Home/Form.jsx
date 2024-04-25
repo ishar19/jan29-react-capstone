@@ -70,11 +70,11 @@ export default function Form() {
         display: "flex",
         flexDirection: "column",
         gap: "1rem",
-        width: "300px",
         margin: "0 auto",
       }}
     >
       <input
+        className="input-box"
         type="text"
         placeholder="Name"
         value={data.name}
@@ -82,6 +82,7 @@ export default function Form() {
       />
       <span style={{ color: "red" }}>{error.name}</span>
       <input
+        className="input-box"
         type="text"
         name=""
         id=""
@@ -91,6 +92,7 @@ export default function Form() {
       />
       <span style={{ color: "red" }}>{error.username}</span>
       <input
+        className="input-box"
         type="email"
         name=""
         id=""
@@ -100,6 +102,7 @@ export default function Form() {
       />
       <span style={{ color: "red" }}>{error.email}</span>
       <input
+        className="input-box"
         type="tel"
         name=""
         id=""
@@ -110,6 +113,7 @@ export default function Form() {
       <span style={{ color: "red" }}>{error.phone}</span>
       <label htmlFor="checkbox">
         <input
+          className="share-registration-data"
           type="checkbox"
           name="checkbox"
           id="checkbox"
@@ -119,7 +123,7 @@ export default function Form() {
         Share my registration data with Superapp
       </label>
       <span style={{ color: "red" }}>{error.checkbox}</span>
-      <button type="submit">Submit</button>
+      <button className="signup-button" type="submit">Submit</button>
     </form>
   );
 }
