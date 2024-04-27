@@ -78,6 +78,7 @@ const genreIds = [
     name: "Western",
   },
 ];
+import { genreNames } from "../utils/genreNames";
 export default function Browse() {
   const [fetchedMovies, setFetchedMovies] = useState({
     page: 1,
@@ -467,11 +468,6 @@ export default function Browse() {
     total_results: 39588,
   });
 
-  const selectedMovies = JSON.parse(localStorage.getItem("selectedMovies")); // [1,2,3]
-  const allData = JSON.parse(localStorage.getItem("allData")); // [{id:1, name:"Action"}, {id:2, name:"Drama"}, {id:name:"Romance"}]
-  const genreNames = selectedMovies.map((id) => {
-    return allData.find((movie) => movie.id === id);
-  });
   let requiredGenres = [];
   genreIds.forEach((genre) => {
     return genreNames.filter((data) => {
