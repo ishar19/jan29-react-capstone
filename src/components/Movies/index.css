@@ -1,0 +1,75 @@
+.movies-container {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.movies-main-section {
+    display: flex;
+    height: 80vh;
+}
+
+.movies-category-selection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+}
+
+.movies-category-selection-area {
+    width: 80%;
+}
+
+.movie-chooses-cateegory-text {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 68px;
+    line-height: 94.99px;
+    color: #FFFFFF;
+}
+
+.all-movie-types{
+    width: 60vw;
+}
+
+.movies-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    position: relative;
+    top: 100px;
+    left: 90vw;
+    background-color: #148A08;
+    border-radius: 38.86px;
+    width: 100px;
+    height: 56px;
+    font-family: "DM Sans", sans-serif;
+}
+
+.movie-chip-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 31px;
+    background-color: #148A08;
+    color: #FFFFFF;
+}
+
+.movie-chip {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 25.14px;
+}
+
+.movie-type-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    justify-content: space-around;
+    background-color: #FF5209;
+    color: white;
+}

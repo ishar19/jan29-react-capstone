@@ -9,6 +9,7 @@ export default function Box({ data, selectedMovies, setSelectedMovies }) {
     }
     return (
       <div
+        className="movie-type-card"
         style={{
           border: selectedMovies.includes(data.id)
             ? "2px solid green"
@@ -17,16 +18,14 @@ export default function Box({ data, selectedMovies, setSelectedMovies }) {
           margin: "10px",
           width: "200px",
           height: "200px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
           backgroundColor: selectedMovies.includes(data.id)
             ? "lightgreen"
-            : "white",
+            : "#FF5209",
         }}
         onClick={handleSelection}
       >
         {data.name}
+        {<img src={data.img}/>}
       </div>
     );
   }

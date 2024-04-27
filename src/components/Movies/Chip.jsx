@@ -10,16 +10,11 @@ export default function Chip({
     }
     const obj = allData.find((item) => item.id === data);
     return (
-      <p
-        style={{
-          border: "1px solid black",
-          padding: "10px",
-          margin: "10px",
-          display: "inline-block",
-          width: "80px",
-        }}
-      >
-        {obj.name}&nbsp; &nbsp; <span onClick={removeSelection}>X</span>
-      </p>
+      <div className="movie-chip-container">
+        <p className="movie-chip">
+            {obj.name}&nbsp; &nbsp; <span onClick={removeSelection}>X</span>
+        </p>
+      </div>
+      
     );
   }
