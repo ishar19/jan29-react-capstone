@@ -484,8 +484,8 @@ export default function Browse() {
         const options = {
           method: "GET",
           headers: {
-            "X-RapidAPI-Key":
-              "2203f925d2mshc4d829150064a10p1e34f7jsn0510d0d703b8", // api key
+            //"X-RapidAPI-Key":
+             // "", // api key
             "X-RapidAPI-Host": "advanced-movie-search.p.rapidapi.com",
           },
         };
