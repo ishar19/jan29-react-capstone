@@ -22,7 +22,7 @@ export default function Box({ data, selectedMovies, setSelectedMovies }) {
           : "2px solid black",
         padding: "10px",
         margin: "10px",
-        width: "200px",
+        width: "180px",
         height: "175px",
         display: "flex",
         justifyContent: "center",
