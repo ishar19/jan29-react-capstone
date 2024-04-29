@@ -72,6 +72,7 @@ export default function Form() {
     }
     if (!isError) {
       console.log("Data is valid");
+      localStorage.setItem("formData", JSON.stringify(data));
       navigate("/movies");
     }
   }

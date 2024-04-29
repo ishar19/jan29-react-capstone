@@ -1,6 +1,7 @@
 import { Box, Chip } from "../components";
 import { useState } from "react";
 import '../components/Movies/index.css'
+import { useNavigate } from "react-router-dom";
 
 const moviesData = [
   {
@@ -52,6 +53,18 @@ const moviesData = [
 
 export default function Movies() {
   const [selectedMovies, setSelectedMovies] = useState([]);
+
+  const navigate = useNavigate();
+  const handleNextPage = () => {
+    if (selectedMovies.length < 3) {
+      alert("Please select atleast 3 movies");
+    } else {
+      localStorage.setItem("selectedMovies", JSON.stringify(selectedMovies));
+      localStorage.setItem("allData", JSON.stringify(moviesData));
+      navigate("/browse");
+    }
+  };
+
   return (
     <>
       <div className="movies-container">
@@ -106,7 +119,7 @@ export default function Movies() {
         </div>
 
         <div className="movies-footer">
-            <div>Next Page</div>
+            <div><button onClick={handleNextPage}>Next Page</button></div>
         </div>
       </div>
       
