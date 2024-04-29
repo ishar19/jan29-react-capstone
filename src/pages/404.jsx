@@ -1,3 +1,11 @@
-export default function NotFound() {
-  return <p>404 - Page not found</p>;
+import React from 'react'
+
+const NotFound = () => {
+  return (
+    <div>
+      <p>404 - Error while loading the page</p>
+    </div>
+  )
 }
+
+export default NotFound

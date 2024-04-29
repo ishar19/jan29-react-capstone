@@ -1,8 +1,12 @@
-import { Form } from "../components";
-export default function Home() {
+import React from 'react'
+import { Form } from '../components'
+
+const Home = () => {
   return (
-    <>
-      <Form />
-    </>
-  );
+      <>
+      <Form/>
+      </>
+  )
 }
+
+export default Home
