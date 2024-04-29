@@ -1,6 +1,6 @@
 import { Box, Chip } from "../components";
 import { useState } from "react";
-import '../components/Movies/index.css'
+import "../components/Movies/index.css";
 import { useNavigate } from "react-router-dom";
 
 const moviesData = [
@@ -8,6 +8,7 @@ const moviesData = [
     id: 1,
     name: "Action",
     img: "../../assets/movie_type/action_image.png",
+    backgroundColor: "blue",
   },
   {
     id: 2,
@@ -75,7 +76,12 @@ export default function Movies() {
                 <p className="app-name">Super App</p>
               </div>
               <div>
-                <p style={{margin : '0px'}} className="movie-chooses-cateegory-text">Choose your entertainment category</p>
+                <p
+                  style={{ margin: "0px" }}
+                  className="movie-chooses-cateegory-text"
+                >
+                  Choose your entertainment category
+                </p>
               </div>
               <div
                 style={{
@@ -83,17 +89,17 @@ export default function Movies() {
                   gridTemplateColumns: "repeat(2, 1fr)",
                 }}
               >
-              {selectedMovies.map((data) => {
-                return (
-                  <Chip
-                    key={data.id}
-                    data={data}
-                    allData={moviesData}
-                    selectedMovies={selectedMovies}
-                    setSelectedMovies={setSelectedMovies}
-                  />
-                );
-              })}
+                {selectedMovies.map((data) => {
+                  return (
+                    <Chip
+                      key={data.id}
+                      data={data}
+                      allData={moviesData}
+                      selectedMovies={selectedMovies}
+                      setSelectedMovies={setSelectedMovies}
+                    />
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -104,25 +110,26 @@ export default function Movies() {
                 gridTemplateColumns: "repeat(3, 1fr)",
               }}
             >
-            {moviesData.map((data) => {
-              return (
-                <Box
-                  key={data.id}
-                  data={data}
-                  selectedMovies={selectedMovies}
-                  setSelectedMovies={setSelectedMovies}
-                />
-              );
-            })}
+              {moviesData.map((data) => {
+                return (
+                  <Box
+                    key={data.id}
+                    data={data}
+                    selectedMovies={selectedMovies}
+                    setSelectedMovies={setSelectedMovies}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>
 
-        <div className="movies-footer">
-            <div><button onClick={handleNextPage}>Next Page</button></div>
+        <div>
+          <button className="movies-footer" onClick={handleNextPage}>
+            Next Page
+          </button>
         </div>
       </div>
-      
     </>
   );
 }
