@@ -20,9 +20,8 @@ export default function Form() {
     const phoneRegex = /^[0-9]{10}$/;
     return phoneRegex.test(phone);
   }
-  console.log(data.name.trim());
   function validate() {
-    let isError = false;
+    let isError=false;
     setError(() => {
       return {
         name: "",
@@ -73,6 +72,13 @@ export default function Form() {
       navigate("/movies");
     }
   }
+  const boxStyle={
+    backgroundColor: '#292929',
+    color:'#7C7C7C',
+    fontSize:'14px',
+    padding:'12px',
+    borderRadius:'3px'
+  }
   return (
     <form
       onSubmit={(e) => {
@@ -82,15 +88,16 @@ export default function Form() {
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "1rem",
-        width: "300px",
-        margin: "0 auto",
+        gap: "10px",
+        justifyContent:'center'
+        
       }}
     >
       <input
         type="text"
         placeholder="Name"
         value={data.name}
+        style={boxStyle}
         onChange={(e) => setData({ ...data, name: e.target.value })}
       />
       <span style={{ color: "red" }}>{error.name}</span>
@@ -98,8 +105,9 @@ export default function Form() {
         type="text"
         name=""
         id=""
-        placeholder="Username"
+        placeholder="UserName"
         value={data.username}
+        style={boxStyle}
         onChange={(e) => setData({ ...data, username: e.target.value })}
       />
       <span style={{ color: "red" }}>{error.username}</span>
@@ -109,6 +117,7 @@ export default function Form() {
         id=""
         placeholder="Email"
         value={data.email}
+        style={boxStyle}
         onChange={(e) => setData({ ...data, email: e.target.value })}
       />
       <span style={{ color: "red" }}>{error.email}</span>
@@ -118,10 +127,11 @@ export default function Form() {
         id=""
         placeholder="Phone"
         value={data.phone}
+        style={boxStyle}
         onChange={(e) => setData({ ...data, phone: e.target.value })}
       />
       <span style={{ color: "red" }}>{error.phone}</span>
-      <label htmlFor="checkbox">
+      <label htmlFor="checkbox" style={{fontSize:'80%'}}>
         <input
           type="checkbox"
           name="checkbox"
@@ -129,10 +139,12 @@ export default function Form() {
           checked={data.checkbox}
           onChange={(e) => setData({ ...data, checkbox: e.target.checked })}
         />
-        Share my registration data with Superapp
+        &nbsp; Share my registration data with SuperApp
       </label>
       <span style={{ color: "red" }}>{error.checkbox}</span>
-      <button type="submit">Submit</button>
+      <button type="submit"
+        className="text-white text-2xl font-bold bg-[#72DB73] rounded-full p-2  "
+      >SIGN UP</button>
     </form>
   );
 }
