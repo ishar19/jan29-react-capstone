@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import NewsUrl from '../../assets/news.svg'
+import NewsUrl from "../../assets/news.svg";
 
 export default function News() {
   const [news, setNews] = useState(null);
-  const [searchQuery, setSearchQuery] = useState();
+  const [searchQuery, setSearchQuery] = useState("india");
+  const [search, setSearch] = useState();
   useEffect(() => {
     if (!searchQuery) return;
 
@@ -12,7 +13,7 @@ export default function News() {
     fetch(url)
       .then((response) => response.json())
       .then((data) => setNews(data));
-  }, [searchQuery]);
+  }, [search]);
   function createMarkup() {
     return { __html: news ? news.posts[0].highlightText : <h1>Loading...</h1> };
   }
@@ -24,6 +25,9 @@ export default function News() {
       <input
         type="text"
         value={searchQuery}
+        onKeyDown={(e) => {
+          e.key === "Enter" && setSearch(e.target.value);
+        }}
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder="Enter search query"
       />
@@ -33,7 +37,11 @@ export default function News() {
           <p> {news.posts[0].title}</p>
           {/* <p dangerouslySetInnerHTML={_html:news.posts[0].highlightText}></p> */}
           <p dangerouslySetInnerHTML={createMarkup()}></p>
-          { news.posts[0].thread.main_image ? <img src={news.posts[0].thread.main_image}/> : <img src={NewsUrl}/>}
+          {news.posts[0].thread.main_image ? (
+            <img src={news.posts[0].thread.main_image} />
+          ) : (
+            <img src={NewsUrl} />
+          )}
         </div>
       ) : (
         <p>Loading...</p>
