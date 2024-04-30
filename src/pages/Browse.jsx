@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { genreNames } from "../utils/genreNames";
+import RecommendedMovies from "../components/Movies/RecommendedMovies";
 
 const genreIds = [
   {
@@ -502,45 +503,12 @@ export default function Browse() {
       null;
     }
   }, []);
-  console.log(fetchedMovies);
+  console.log("fetchedMovies : " +fetchedMovies);
+  
   return (
-    <p>
-      Browse
-      {requiredGenres.map((genre) => {
-        return (
-          <>
-            <div key={genre.id}>{genre.name}</div>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(3, 1fr)",
-                gap: "20px",
-              }}
-            >
-              {fetchedMovies.results.map((movie) => {
-                return (
-                  <div
-                    key={movie.original_title}
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: "1rem",
-                    }}
-                  >
-                    {movie.original_title}
-                    <img
-                      width={200}
-                      height={200}
-                      src={movie.poster_path}
-                      alt={movie.original_title}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </>
-        );
-      })}
-    </p>
+    <div>
+       {requiredGenres.map(genre =>
+        <RecommendedMovies category={genre} movies={fetchedMovies}/>)}
+    </div>
   );
 }
