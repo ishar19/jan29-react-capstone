@@ -132,8 +132,8 @@ export default function Browse() {
 
           <div className="grid grid-cols-4 ml-10 -gap-1">
             {fetchedMovies[index]?.results.slice(0, 4).map((movie) => (
-              <div key={movie.id} className="flex flex-col gap-1 text-[#878787] font-medium pb-2" >
-                <img className="h-[120px] w-[250px] rounded-lg"
+              <div key={movie.id} className="flex flex-col gap-1 text-[#878787] font-medium mb-2" >
+                <img className="h-[120px] w-[250px] rounded-lg border-white border-2"
                 src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt={movie.title}/>
                 <p>{movie.title}</p>
               </div>
