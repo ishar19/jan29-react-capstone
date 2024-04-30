@@ -3,18 +3,17 @@ import { News, Notes, UserInfo } from '../components'
 
 const Dashboard = () => {
   return (
-    <>
-      <div>
+    <div style={{
+      height: '100vh',
+      width: '100vw',
+      padding: '2rem 6rem',
+      backgroundColor: 'black',
+      position : 'relative'
+    }}>
         <UserInfo />
-      </div>
-      <div>
         <Notes />
-      </div>
-      <div>
         <News />
-      </div>
-    </>
-
+    </div>
   )
 }
 

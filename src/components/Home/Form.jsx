@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Background from "../../../public/assets/image13.png";
+import image13 from "../../../public/assets/image13.png";
+import './Home.css'
+
 const Form = () => {
   const navigate = useNavigate();
 
@@ -83,84 +85,37 @@ const Form = () => {
     }
   }
 
-  const formStyles = {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "start",
-    gap: "1rem",
-    margin: "0px auto",
-  };
-
-  const divP2Styles = {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "60vw",
-    height: "100vh",
-  };
-
-  const inputStyles = {
-    padding: "12px",
-    background: "#292929",
-    border: "1px solid #292929",
-    width: "300px",
-    color: "white",
-  };
-
-  const paraStyles = {
-    color: "white",
-    width: "320px",
-    fontSize: "0.8rem",
-  };
-
-  const buttonStyles = {
-    cursor: "pointer",
-    color: "white",
-    width: "320px",
-    height: "40px",
-    backgroundColor: "#72DB73",
-    border: "1px solid #72DB73",
-    borderRadius: "20px",
-    fontSize: "20px",
-  };
-
   return (
     <div style={{ display: "flex", background: "black" }}>
       <div style={{ position: "relative" }}>
-        <p
-          style={{
-            position: "absolute",
-            fontSize: "45px",
-            color: "white",
-            zIndex: "1",
-            fontFamily: "Roboto",
-            bottom: "60px",
-            left: "80px",
-          }}
-        >
+        <p className ="part1ParaStyle">
           Discover new things on <br />
           Superapp
         </p>
         <img
-          src={Background}
+          src={image13}
           alt="MusicFestivalPhoto"
           style={{ width: "40vw", height: "100vh" }}
         />
       </div>
 
-      <div style={divP2Styles}>
+      <div className="part2Style">
         <h1
           style={{
             color: "#72DB73",
             fontFamily: "Single Day ,cursive",
             margin: "15px auto",
+            fontSize : '3rem'
           }}
         >
           Super App
         </h1>
-        <h4 style={{ color: "white", margin: "0px auto 20px auto" }}>
+        <h4 
+        style={{ 
+          color: "white", 
+          margin: "0px auto 20px auto",
+          fontSize : '14px'
+           }}>
           Create your new account
         </h4>
 
@@ -169,7 +124,7 @@ const Form = () => {
             e.preventDefault();
             validate();
           }}
-          style={formStyles}
+          className ="formStyle"
         >
           <input
             type="text"
@@ -178,7 +133,7 @@ const Form = () => {
             placeholder="Name"
             value={data.name}
             onInput={(e) => setData({ ...data, name: e.target.value })}
-            style={inputStyles}
+            className ="inputStyle"
           />
           {error.name && (
             <span style={{ color: "red", fontSize: "0.8rem" }}>
@@ -193,7 +148,7 @@ const Form = () => {
             placeholder="UserName"
             value={data.userName}
             onInput={(e) => setData({ ...data, userName: e.target.value })}
-            style={inputStyles}
+            className ="inputStyle"
           />
           {error.userName && (
             <span style={{ color: "red", fontSize: "0.8rem" }}>
@@ -208,7 +163,7 @@ const Form = () => {
             placeholder="Email"
             value={data.email}
             onInput={(e) => setData({ ...data, email: e.target.value })}
-            style={inputStyles}
+            className ="inputStyle"
           />
           {error.phone && (
             <span style={{ color: "red", fontSize: "0.8rem" }}>
@@ -223,7 +178,7 @@ const Form = () => {
             placeholder="Phone"
             value={data.phone}
             onChange={(e) => setData({ ...data, phone: e.target.value })}
-            style={inputStyles}
+            className ="inputStyle"
           />
           {error.phone && (
             <span style={{ color: "red", fontSize: "0.8rem" }}>
@@ -256,20 +211,20 @@ const Form = () => {
             </span>
           )}
 
-          <button type="submit" style={buttonStyles}>
+          <button type="submit" className="buttonStyle">
             Sign Up
           </button>
         </form>
 
-        <p style={paraStyles}>
+        <p className="part2ParaStyle">
           By clicking on Sign up. you agree to Superapp{" "}
-          <span style={{ color: "#72DB73" }}>Terms and Conditions of Use</span>
+          <span className="AppColor">Terms and Conditions of Use</span>
         </p>
 
-        <p style={paraStyles}>
+        <p className="part2ParaStyle">
           To learn more about how Superapp collects, uses, shares and protects
           your personal data please head Superapp{" "}
-          <span style={{ color: "#72DB73" }}>Privacy Policy</span>
+          <span className="AppColor">Privacy Policy</span>
         </p>
       </div>
     </div>

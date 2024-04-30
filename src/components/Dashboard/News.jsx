@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import image from '../../../public/assets/fantasyImg.png'
 
 const News = () => {
     const [news, setNews] = useState(null);
@@ -34,19 +35,49 @@ const News = () => {
     if (!news) {
         return <div>No news available.</div>; // Handle case where no news is returned
     }
-    
+
     const id = Math.floor(Math.random() * news.posts.length)
-    const markUp = {__html : news.posts[id].highlightText }
-    
+    const markUp = { __html: news.posts[id].highlightText }
+
 
     return (
-        <div>
-            <p>News Api</p>
+        <div style={{
+            backgroundColor: 'black',
+
+            height: '600px',
+            width: '350px',
+            position: 'absolute',
+            top: '30px',
+            left: '1020px'
+        }}>
+
             {news ?
-                <div>
-                    <p>{news.posts[id].title}</p>
-                    <p dangerouslySetInnerHTML={markUp}></p>
-                    <img src={news.posts[id].thread.main_image} alt="cricketNews" style={{ height: '200px', width: '250px' }} />
+                <div style={{
+                    display: 'flex',
+                    flexDirection : 'column',
+                    alignItems: 'center',
+                    justifyContent :'center',
+                    borderRadis: '25px',
+
+                }}>
+                    <img src={news.posts[id].thread.main_image} alt="cricketNews" style={{ height: '350px', width: '100%', display: 'block' }} />
+                    <div style={{
+                        backgroundColor : 'white',
+                        padding : '10px',
+                        height : '250px',
+                        overflowY: 'auto'
+                    }}>
+                        <p style={{
+                            color: 'black',
+                            fontWeight: 'bold',
+                            fontSize : '20px',
+                            margin : '20px 0px 15px 0px'
+                        }}>{news.posts[id].title}</p>
+                        <p dangerouslySetInnerHTML={markUp}
+                            style={{
+                                color: 'black'
+                            }}></p>
+                    </div>
                 </div>
                 :
                 <p>Loading....</p>
