@@ -121,21 +121,21 @@ export default function Browse() {
   }, []);
 
   return (
-    <div className="bg-black min-h-screen">
-      <img className="fixed right-[50px] top-4 h-[60px] w-[60px]"
+    <div style={{background: 'linear-gradient(180deg, #000000 30%, rgba(0, 0, 0, 0.8) 100%)'}} className="min-h-screen">
+      <img className="absolute right-[50px] top-4 h-[60px] w-[60px]"
       src={browseImg} alt="profImg" />
       <p className="font-single-day text-left text-4xl ml-4 pt-1 pb-2 text-[#72DB73] ">Super app</p>
       <p className="text-white ml-10 p-2 text-xl font-bold">Entertainment according to your choice</p>
       {genreNames.map((genre, index) => (
         <div key={genre.id}>
-          <p className="ml-10 text-white font-semibold mb-2 text-xl">{genre.name} &#62;</p>
+          <p className="ml-10 text-[#878787] font-semibold mt-4 mb-1 text-xl">{genre.name}</p>
 
           <div className="grid grid-cols-4 ml-10 -gap-1">
             {fetchedMovies[index]?.results.slice(0, 4).map((movie) => (
               <div key={movie.id} className="flex flex-col gap-1 text-[#878787] font-medium mb-2" >
-                <img className="h-[120px] w-[250px] rounded-lg border-white border-2"
+                <img className="h-[150px] w-[300px] rounded-lg "
                 src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt={movie.title}/>
-                <p>{movie.title}</p>
+                {/* <p>{movie.title}</p> */}
               </div>
             ))}
           </div>
