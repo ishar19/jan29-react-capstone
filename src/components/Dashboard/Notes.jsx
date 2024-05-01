@@ -8,17 +8,16 @@ const Notes = () => {
       backgroundColor: '#F1C75B',
       borderRadius : '25px',
       color: 'black',
-      height: '350px',
-      width: '280px',
+      height: '410px',
+      width: '350px',
       padding: '10px',
       position: 'absolute',
-      top: '30px',
-      left: '650px'
+      left: '39rem'
     }}>
 
       <div style={{
-        height: '340px',
-        width: '240px',
+        height: '400px',
+        width: '260px',
         margin : '2px auto',
         display: 'flex',
         flexDirection: 'column',
@@ -27,7 +26,7 @@ const Notes = () => {
       }}>
         <p style={{
           fontSize: '1.5rem',
-          width: '250px',
+          width: '260px',
           backgroundColor: '#F1C75B',
           marginBottom : '5px'
         }}>All Notes</p>
@@ -43,12 +42,9 @@ const Notes = () => {
             resize: 'none',
             border: 'none', // to remove border
             outline: 'none', // to remove outline 
-            backgroundColor : '#F1C75B',
-            color : "black",
-            overflowY: 'auto',
-            // ScrollbarWidth: 'thin', 
-            // ScrollbarColor: 'black #f1f1f1', 
-
+            backgroundColor : '#F1C75B',   
+             color : "black",
+            overflowY: 'auto'
           }}
         >
         </textarea>

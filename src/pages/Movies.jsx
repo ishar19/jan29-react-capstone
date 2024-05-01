@@ -85,7 +85,7 @@ const Movies = () => {
       setDanger(false)
       localStorage.setItem('selectedMovies', JSON.stringify(selectedMovies))
       localStorage.setItem('moviesData', JSON.stringify(moviesData))
-      navigate("/browse")
+      navigate("/dashboard")
     }
   }
 
@@ -113,7 +113,7 @@ const Movies = () => {
             })}
           </div>
           { danger && <span style={{display : 'flex' , marginTop : '50px' , marginLeft : '7.5rem'}}>
-            <img width="16" height="16" src={dangerIcon} alt="high-priority--v1" />
+            <img width="16" height="16" src={dangerIcon} alt="dangerSign" />
             <p style={{ color: 'red' ,marginLeft: '0.6rem' , fontSize : '18px' }}>Minimum 3 category required</p>
           </span>
           }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { GenreCard } from '../components';
+import { genreData } from '../components/utils/genreName';
 import browseIcon from '../../public/assets/browseIcon.png'
 import '../App.css'
 
@@ -86,7 +87,7 @@ const genreIds = [
     }
 ]
 
-import { genreData } from '../components/utils/genreName';
+
 
 const Browse = () => {
 
@@ -153,6 +154,7 @@ const Browse = () => {
     })
 
 
+
     return (
         <div style={{
             backgroundColor: 'black',
@@ -175,7 +177,7 @@ const Browse = () => {
                 {
                     genreName.map((name, index) => {
                         return <GenreCard
-                            key={name}
+                            key={index}
                             genre={name}
                             val1={index * 10}                     // Adjusting val1 based on index
                             val2={(index + 1) * 10}               // Adjusting val2 based on index

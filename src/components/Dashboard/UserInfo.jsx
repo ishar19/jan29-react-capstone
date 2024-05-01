@@ -14,14 +14,14 @@ const UserInfo = () => {
       borderRadius : '25px',
       color: 'white',
       width : '500px',
-      height: '300px',
+      height: '280px',
       position: 'absolute'
     }}>
 
 
       <div style={{
         display: 'flex',
-        margin: '2rem 1.5rem',
+        margin: '1rem 1.5rem',
         gap : '3rem'
       }}>
         <img src={image15} alt="userAnimatedIcon" style={{
