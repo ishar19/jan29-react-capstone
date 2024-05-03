@@ -11,10 +11,10 @@ export default function Notes() {
         placeholder="ALL NOTES"
         className="bg-[#F1C75B] rounded-xl"
         style={{
-          maxHeight: "55vh",
-          maxWidth: "20vw",
+          height: "60vh",
+          maxWidth: "22vw",
           padding:'10px',
-          color:'black'
+          color:'black',
         }}
         onChange={(e) => {
           setNotes(e.target.value);

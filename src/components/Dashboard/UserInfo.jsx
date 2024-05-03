@@ -17,9 +17,9 @@ export default function UserInfo() {
           <p className="text-3xl text-white">{user.username}</p>
         </div>
 
-        <div className="grid grid-cols-3 m-1 gap-1">
+        <div className="grid grid-cols-3 m-1 gap-2">
           {genreNames.map((genre) => {
-            return <p className="bg-[#9F94FF] rounded-[35px] pl-2 pr-3 pt-1 pb-1 text-white text-lg" key={genre.id}>{genre.name}</p>;
+            return <p className="bg-[#9F94FF] rounded-[35px] pl-4 pt-2 w-[100px] h-[40px] text-white text-lg" key={genre.id}>{genre.name}</p>;
           })}
         </div>
 
